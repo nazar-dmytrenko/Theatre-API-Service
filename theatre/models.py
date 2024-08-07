@@ -39,8 +39,9 @@ class TheatreHall(models.Model):
 
 
 def play_image_path(instance, filename) -> pathlib.Path:
-    filename = f"{slugify(instance.title)}-{uuid.uuid4()}" + (
-        pathlib.Path(filename).suffix)
+    filename = (
+        f"{slugify(instance.title)}-{uuid.uuid4()}" + pathlib.Path(filename).suffix
+    )
     return pathlib.Path("upload/plays/") / pathlib.Path(filename)
 
 
